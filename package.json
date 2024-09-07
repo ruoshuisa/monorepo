@@ -1,0 +1,27 @@
+{
+  "name": "web-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.12",
+    "pnpm": ">=9.5"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "math:dev": "pnpm -F math-project-vue dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.13"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": ">=9.0.0 <=9.9.0"
+      }
+    }
+  }
+}

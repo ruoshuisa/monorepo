@@ -1,6 +1,8 @@
 import vue from '@vitejs/plugin-vue'
+import path from 'node:path';
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
+import VueI18n from "@intlify/unplugin-vue-i18n/vite" ;
 
 export default defineConfig({
   plugins: [
@@ -17,9 +19,14 @@ export default defineConfig({
           md: ['1.125rem', '1.5rem'],
           lg: ['1.25rem', '1.5rem'],
           xl: ['1.375rem', '2rem'],
-
         },
       },
+    }),
+    VueI18n({
+      runtimeOnly: true,
+      compositionOnly: true,
+      fullInstall: true,
+      include: [path.resolve(__dirname, "src/locales/**")],
     }),
   ],
   resolve: {
@@ -36,3 +43,4 @@ export default defineConfig({
     },
   },
 })
+

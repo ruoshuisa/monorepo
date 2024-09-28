@@ -2,14 +2,14 @@
 import HelloWorld from './components/HelloWorld.vue'
 import dayjs from "dayjs";
 import { Person } from "@ruoshuisa/tools";
-import ZhihuHot from './components/ZhihuHot.vue';
+//import ZhihuHot from './pages/ZhihuHot.vue';
 import { onMounted } from "vue";
-import { useDark } from "./components/useDark";
-const { enableDarkMode, disableDarkMode, applySavedTheme } = useDark();
 
-onMounted(() => {
-  applySavedTheme();
-});
+import { RouterLink } from 'vue-router';
+
+
+
+
 const p = new Person("23 张雨佳", "math");
 </script>
 
@@ -27,18 +27,9 @@ const p = new Person("23 张雨佳", "math");
         OnClick
       </button>
       <div class="i-carbon-logo-github" />
-    </div>
+    </div> 
 
-    <div class="dark:bg-red">
-      <div class="flex justify-center gap-5">
-        <button @click="disableDarkMode">
-          Light
-        </button>
-        <button @click="enableDarkMode">
-          Dark
-        </button>
-      </div>
-    </div>
+    
     <div>当前时间{{ dayjs().format('YYYY年MM月DD日 HH:mm:ss') }}</div>
     <div>{{ p.name }} : {{ p.slogan }}</div>
     <a href="https://vitejs.dev" target="_blank">
@@ -47,8 +38,8 @@ const p = new Person("23 张雨佳", "math");
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
-    <!-- <HelloWorld msg="Vite + Vue" /> -->
-    <section
+    <HelloWorld msg="Vite + Vue" /> 
+     <section
       class="grid grid-cols-3 m-auto mb-4 mt-4 w-800px items-center gap-2 rounded-md bg-pink-2"
     >
       <div class="h-10 place-content-center bg-pink-3">
@@ -69,12 +60,40 @@ const p = new Person("23 张雨佳", "math");
       <div class="h-10 place-content-center bg-pink-4">
         6
       </div>
-    </section>
-    <ZhihuHot />
+    </section> 
+     <!-- <ZhihuHot /> -->
+    
   </div>
+<!-- <Apifox/>
+<i18n /> -->
+
+<main class="m-2 h-70vh overflow-y-scroll rounded-xl bg-truegray-200 p-2 dark:bg-purple-300">
+  <p>
+    <strong>Current route path:</strong>{{ $route.fullPath }}
+  </p>
+  <header flex justify-center gap-4 text-xl>
+    <RouterLink to="/">
+      知乎热榜
+    </RouterLink>
+    <RouterLink to="/theme">
+      主题切换
+    </RouterLink>
+    <RouterLink to="/mock">
+      以赝顶真
+    </RouterLink>
+    <RouterLink to="/api">
+      api
+    </RouterLink>
+    <RouterLink to="/I18n">
+      I18n
+    </RouterLink>
+  </header>
+  <router-view />
+</main>
 </template>
 
 <style scoped>
+
 .logo {
   height: 6em;
   padding: 1.5em;

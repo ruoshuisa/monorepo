@@ -4,7 +4,8 @@ import { createRouter,createWebHistory } from 'vue-router'
 import ZhihuHot from '../pages/ZhihuHot.vue'
 import Apifox from '../pages/Apifox.vue'
 import I18n from '../pages/I18n.vue'
-import test from '../pages/test.vue'
+ import test from '../pages/test.vue'
+import color from '../pages/ColorTheme.vue'
 
 const routes = [
     {name:'home',path:'/',component:HomeView},
@@ -12,7 +13,8 @@ const routes = [
     {name:'mock',path:'/mock',component:MockView},
     // {name:'zhihu',path:'/zhihu',component:ZhihuHot},
     {name:'Apifox',path:'/api',component:Apifox},
-    {name:'I18n',path:'/I18n',component:I18n}
+    {name:'I18n',path:'/I18n',component:I18n},
+    {name:'color',path:'/color',component:color}
 ]
 
 const router = createRouter({

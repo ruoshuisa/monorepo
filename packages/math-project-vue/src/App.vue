@@ -2,20 +2,33 @@
 import HelloWorld from './components/HelloWorld.vue'
 import dayjs from "dayjs";
 import { Person } from "@ruoshuisa/tools";
-//import ZhihuHot from './pages/ZhihuHot.vue';
-import { onMounted } from "vue";
-
 import { RouterLink } from 'vue-router';
-
+import { showMsg } from './components/MessageBox';
 
 
 
 const p = new Person("23 张雨佳", "math");
+
+function openAleart() {
+  showMsg({
+    title:'标题',
+    content:'1234567',
+    closeable:true,
+    showCancle:true,
+    onCancel:() =>{
+      console.log('Cancle :>>')
+    },
+    onConfirm: ()=>{
+      console.log('Confirm :>>')
+    }
+  })
+}
 </script>
 
 <template>
-  <div class="bg-#a992d5 p-10 dark:bg-purple md:bg-amber-4 sm:bg-blue-3">
-    <div
+  <div>
+    <!-- class="bg-#a992d5 p-10 dark:bg-purple sm:bg-blue-3" -->
+    <!-- <div
       class="-4 m-auto size-100 bg-purple hover:(bg-cyan text-4xl) md:bg-pink sm:bg-blue-3"
       flex
       content-center
@@ -27,7 +40,7 @@ const p = new Person("23 张雨佳", "math");
         OnClick
       </button>
       <div class="i-carbon-logo-github" />
-    </div> 
+    </div>  -->
 
     
     <div>当前时间{{ dayjs().format('YYYY年MM月DD日 HH:mm:ss') }}</div>
@@ -39,7 +52,7 @@ const p = new Person("23 张雨佳", "math");
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
     <HelloWorld msg="Vite + Vue" /> 
-     <section
+     <!-- <section
       class="grid grid-cols-3 m-auto mb-4 mt-4 w-800px items-center gap-2 rounded-md bg-pink-2"
     >
       <div class="h-10 place-content-center bg-pink-3">
@@ -60,13 +73,13 @@ const p = new Person("23 张雨佳", "math");
       <div class="h-10 place-content-center bg-pink-4">
         6
       </div>
-    </section> 
+    </section>  -->
      <!-- <ZhihuHot /> -->
     
   </div>
 <!-- <Apifox/>
 <i18n /> -->
-
+<button @click="openAleart"> openAleart</button>
 <main class="m-2 h-70vh overflow-y-scroll rounded-xl bg-truegray-200 p-2 dark:bg-purple-300">
   <p>
     <strong>Current route path:</strong>{{ $route.fullPath }}
@@ -86,6 +99,9 @@ const p = new Person("23 张雨佳", "math");
     </RouterLink>
     <RouterLink to="/I18n">
       I18n
+    </RouterLink>
+    <RouterLink to="/color">
+      UnoCSS动态主题切换
     </RouterLink>
   </header>
   <router-view />
@@ -107,3 +123,5 @@ const p = new Person("23 张雨佳", "math");
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
+
+

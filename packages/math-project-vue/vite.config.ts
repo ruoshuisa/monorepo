@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 import VueI18n from "@intlify/unplugin-vue-i18n/vite" ;
 
 export default defineConfig({
+  
   plugins: [
     vue(),
     UnoCSS({
@@ -31,6 +32,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: { '@': '/src' },
+  },
+  test : {
+    environment: "jsdom",
   },
   server: {
     open: true,
